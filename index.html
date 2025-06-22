@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Seri Moment - Toko kue premium online. Nikmati bolu, pudding, bingka, dan kue khas lainnya yang lezat dan manis dalam setiap gigitan.">
+<meta name="keywords" content="Seri Moment, toko kue, bolu, pudding, bingka, kue khas Banjar, toko kue Amuntai, kue tradisional">
+<meta name="author" content="Seri Moment">
+<meta property="og:title" content="Seri Moment – Etalase Premium Kue" />
+<meta property="og:description" content="Momen manis dalam setiap gigitan – temukan kue favoritmu di Seri Moment!" />
+<meta property="og:image" content="https://yourwebsite.com/assets/thumbnail.jpg" />
+<meta property="og:url" content="https://yourwebsite.com/" />
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yourwebsite.com/" />
+  <title>seri moment – Etalase Premium</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+  <div class="loader" id="loader">Loading...</div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="assets/video/hero-bg.mp4" type="video/mp4">
+      Browser tidak mendukung video.
+    </video>
+    <!-- <div class="hero-slider">
+      <div class="slide active">🌟 MARI BERBELANJA DISINI</div>
+      <div class="slide">🎁 GRATIS ONGKIR UNTUK ORDER DI ATAS 300K</div>
+    </div> -->
+  </section>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">SERI MOMENT</div>
+    <p class="tagline">Momen Manis Dalam Setiap Gigitan</p>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="🔍 Cari produk favoritmu..." />
+    </div>
+    <div class="filter-container" id="categoryFilter"></div>
+    <div class="header-tools">
+      <button class="cart-icon" id="cart-icon">🛒 <span id="cart-count">0</span></button>
+      <button class="dark-toggle" id="dark-toggle">🌙</button>
+    </div>
+  </header>
+
+  <!-- PRODUK -->
+  <main>
+    <section class="products">
+      <div id="product-list" class="product-grid"></div>
+    </section>
+    <p class="note">Tunggu apa lagi? Pesan kue favoritmu melalui WhatsApp!</p>
+  </main>
+
+  <!-- TESTIMONI -->
+  <section class="testimoni">
+    <h2>Apa Kata Pelanggan?</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial-slide active">
+        <p>"Sumpahhh... ini enak sekalii!!"</p>
+        <h4>– Hj. Annisa, Amuntai</h4>
+      </div>
+      <div class="testimonial-slide">
+        <p>"Kada bedulakan makan wadai napa ja disini!"</p>
+        <h4>– Nabila, Amuntai</h4>
+      </div>
+      <div class="testimonial-slide">
+        <p>"Lembut dan lumer..."</p>
+        <h4>– M. Fikri</h4>
+      </div>
+    </div>
+    <div class="testimonial-nav">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 seri moment. All rights reserved.</p>
+    <a href="https://wa.me/6285348176001" class="wa-float" target="_blank" title="Pesan via WhatsApp">💬</a>
+  </footer>
+
+  <!-- POPUP PRODUK -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close-popup">&times;</span>
+      <img id="popup-img" src="" alt="">
+      <h2 id="popup-title"></h2>
+      <p id="popup-desc"></p>
+      <p class="price" id="popup-price"></p>
+      <a id="wa-order-btn" class="wa-order-btn" target="_blank">📦 Pesan Sekarang</a>
+      <a id="popup-order" href="" class="order-btn" target="_blank">Pesan Sekarang via WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- SIDEBAR KERANJANG -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Keranjang Belanja</h3>
+      <span id="close-cart" class="close-cart">&times;</span>
+    </div>
+    <ul id="cart-items" class="cart-items"></ul>
+    <div class="cart-total">
+      <p>Total: <span id="cart-total">Rp 0</span></p>
+      <div class="cart-actions">
+        <button id="clear-cart" class="clear-cart">Hapus Semua</button>
+        <a id="checkout-btn" class="checkout-btn" target="_blank">Checkout via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFIKASI -->
+  <div id="toast" class="toast">Ditambahkan ke keranjang 🍰</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
