@@ -563,7 +563,7 @@ footer a.wa-float {
 /* Mobile */
 @media screen and (max-width: 600px) {
   .product-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2,);
   }
 
   .hero-slider .slide {
@@ -1557,11 +1557,20 @@ footer {
     bottom: 0;
   }
 
-  .close-cart {
-    font-size: 1.4rem;
-    margin-right: 6px;
-    color: #e91e63;
-  }
+.close-cart {
+  position: absolute;
+  top: 35px;
+  right: 30px;
+  background: var(--accent-color);
+  color: white;
+  font-size: 1.4rem;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 }
 
 .cart-icon {
@@ -1597,4 +1606,119 @@ footer {
 }
 #categoryFilter {
   display: none !important;
+}
+
+.form-pemesanan {
+  background-color: #fff8fb;
+  padding: 40px 20px;
+  text-align: center;
+}
+.form-pemesanan h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+.form-pemesanan form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.form-pemesanan input,
+.form-pemesanan select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: 'Quicksand', sans-serif;
+}
+.form-pemesanan button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.form-pemesanan button:hover {
+  background-color: #d91a57;
+}
+
+.testimoni-page {
+  padding: 40px 20px;
+  background-color: #fff0f5;
+  text-align: center;
+}
+.testimoni-page h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 30px;
+}
+.testimoni-list {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.testimoni-list blockquote {
+  background-color: #fff;
+  padding: 20px;
+  border-left: 5px solid var(--accent-color);
+  border-radius: 10px;
+  font-style: italic;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.testimoni-list footer {
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+.back-home {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+.back-home:hover {
+  text-decoration: underline;
+}
+
+.remove-from-cart {
+  font-size: 1.4rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #ffe6ec;
+  color: #e91e63;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+.remove-from-cart:hover {
+  background: #ffc2d8;
+}
+
+#cart-items li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+#cart-items li img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
 }

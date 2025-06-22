@@ -123,145 +123,143 @@ const products = [
     price: "50.000",
     image: "assets/pudding-tapai.jpeg"
   },
-  {
-    name: "Bingka Kukus Gulmer Durian",
-    description: "Manisnya gula merah, wangi durian, dan kelembutan bingka kukus dalam satu sajian nikmat",
-    price: "40.000",
-    image: "assets/kukus.jpeg",
-    badge: "Best Seller"
-  },
-    {
-    name: "Bubur Kacang Hijau",
-    description: "Leker lembut rasa original Belanda",
-    price: "15.000",
-    image: "assets/burjo.jpeg",
-    badge: "best seller"
   
-  },
-  {
-    name: "Kolak Pisang",
-    description: "Bolu kukus lembut dengan rasa coklat khas",
-    price: "15.000",
-    badge: "Best Seller",
-    image: "assets/kolakpisangori.jpeg"
-  },
-  {
-    name: "Lumpur Surga",
-    description: "Bingka panggang dengan tekstur yang sempurna dan rasa yang enak",
-    price: "35.000",
-    badge: "Best Seller",
-    image: "assets/lmsurga1.jpeg"
-  },
-  // kada tahu harganya masih 
-  {
-    name: "Kolak Pisang Durian",
-    description: "Bolu kukus lembut dengan rasa ori nikmat",
-    price: "15.000",
-    badge: "Best Seller",
-    image: "assets/kolakpisang.jpeg"
-  },
-  {
-    name: "Puding Gulmer",
-    description: "Setiap lapisannya sangat lezat, dengan teskstur yang lembut dan cocok di lidah",
-    price: "35.000",
-    image: "assets/pudinggulmer.jpeg"
-  },
-  {
-    name: "Bingka Gulmer",
-    description: "Bagi kalian yang suka rasa red velvet harus coba bolu ini!",
-    price: "35.000",
-    image: "assets/gulmer.jpeg"
-  },
-  {
-    name: "Kikicak",
-    description: "Renyah, lembut, manis dan bikin nagih! Coba dan rasakan kelezatannya sekarang",
-    price: "15.000",
-    badge: "Best Seller",
-    image: "assets/kikicak.jpeg"
-  },
-  {
-    name: "Iwak Kering Telang Tenggiri Masak Asam",
-    description: "Lembut, dicampur rasa kopi, dan bikin happy! Pesan Sekarang",
-    price: "35.000",
-    image: "assets/iwaktelang.jpeg"
-  },
-  {
-    name: "Bubur Rendang Sagu",
-    description: "Lembutnya tekstur berpadu dengan rasa pisang yang enak",
-    price: "15.000",
-    image: "assets/rendangsagu.jpeg"
-  },
-  {
-    name: "Osengan Hintalu Wadi",
-    description: "Dibuat dari kentang pilihan yang memberikan rasa gurih alami dan tekstur yang super empuk",
-    price: "35.000",
-    badge: "Best Seller",
-    image: "assets/osengan.jpeg"
-  },
-  {
-    name: "Puding Amparan Tatak",
-    description: "Lembut dan unik dengan rasa agar disetiap gigitan. Bikin nagih!",
-    price: "35.000",
-    image: "assets/puddingatak.jpeg"
-  },
-  {
-    name: "Amparan Tatak",
-    description: "Aroma pandan yang harum berpaduu dengan tekstur bolu super lembut. Wajib dicoba!",
-    price: "35.000",
-    badge: "Best Seller",
-    image: "assets/atak.jpeg"
-  },
-  {
-    name: "Putri Selat",
-    description: "COklatnya enak, teksturnya fudgy. Brownies ini bikin mood langsung naik!",
-    price: "35.000",
-    image: "assets/putriselat.jpeg"
-  },
-  {
-    name: "Bubur Beayak",
-    description: "Corak cantik, rasa mantap! Bolu klasik yang juara di hati",
-    price: "15.000",
-    image: "assets/ayak.jpeg"
-  },
-  //harganya 
-  {
-    name: "Puding Tapai",
-    description: "",
-    price: "35.000",
-    image: "assets/pudingtapai.jpeg"
-  },
-  {
-    name: "Bolu Kelapa",
-    description: "Kecil-kecil tapi rasa tetap juara!",
-    price: "130.000",
-    image: "assets/kelapabolu.jpeg"
-  },
-  {
-    name: "Lempeng",
-    description: "BIngka bakar dengan rasa khas kelapa yang enak!",
-    price: "15.000",
-    badge: "Best Seller",
-    image: "assets/lempeng.jpeg"
-  },
-  {
-    name: "Bingka Tapai Kukus",
-    description: "Pudding cantik bertekstur lembut dengan rasa yang lezat",
-    price: "35.000",
-    image: "assets/tapaikukus.jpeg"
-  },
-  {
-    name: "Bolu Ubi Ungu",
-    description: "Manisnya gula merah, wangi durian, dan kelembutan bingka kukus dalam satu sajian nikmat",
-    price: "135.000",
-    image: "assets/ungu.jpeg",
-    badge: "Best Seller"
-  },
-  {
-      name: "Bubur Gunting",
-    description: "Kecil-kecil tapi rasa tetap juara!",
-    price: "15.000",
-    image: "assets/burting.jpeg"
-  }
+{
+  name: "Bingka Kukus Gulmer Durian",
+  description: "Perpaduan manisnya gula merah dan aroma khas durian dalam bingka kukus yang lembut dan legit.",
+  price: "40.000",
+  image: "assets/kukus.jpeg",
+  badge: "Best Seller"
+},
+{
+  name: "Bubur Kacang Hijau",
+  description: "Bubur kacang hijau lembut dengan santan gurih dan aroma pandan yang menenangkan.",
+  price: "15.000",
+  image: "assets/burjo.jpeg",
+  badge: "best seller"
+},
+{
+  name: "Kolak Pisang",
+  description: "Kolak pisang klasik dengan kuah santan manis gurih dan irisan pisang matang sempurna.",
+  price: "15.000",
+  badge: "Best Seller",
+  image: "assets/kolakpisangori.jpeg"
+},
+{
+  name: "Lumpur Surga",
+  description: "Dessert lembut berlapis rasa manis santan dan kuning telur, meleleh di mulut.",
+  price: "35.000",
+  badge: "Best Seller",
+  image: "assets/lmsurga1.jpeg"
+},
+{
+  name: "Kolak Pisang Durian",
+  description: "Kolak pisang khas dengan tambahan durian harum yang bikin nagih tiap suapan.",
+  price: "15.000",
+  badge: "Best Seller",
+  image: "assets/kolakpisang.jpeg"
+},
+{
+  name: "Puding Gulmer",
+  description: "Puding lembut dengan aroma gula merah alami, cocok untuk hidangan penutup tradisional.",
+  price: "35.000",
+  image: "assets/pudinggulmer.jpeg"
+},
+{
+  name: "Bingka Gulmer",
+  description: "Bingka panggang dengan warna dan rasa khas dari gula merah, lembut dan klasik.",
+  price: "35.000",
+  image: "assets/gulmer.jpeg"
+},
+{
+  name: "Kikicak",
+  description: "Kue khas bertekstur kenyal dan manis gurih, cocok jadi camilan nostalgia.",
+  price: "15.000",
+  badge: "Best Seller",
+  image: "assets/kikicak.jpeg"
+},
+{
+  name: "Iwak Kering Telang Tenggiri Masak Asam",
+  description: "Ikan asin tenggiri khas Banjar dimasak asam dengan aroma daun telang yang unik.",
+  price: "35.000",
+  image: "assets/iwaktelang.jpeg"
+},
+{
+  name: "Bubur Rendang Sagu",
+  description: "Perpaduan unik rendang dan sagu dalam bubur khas Banjar yang kaya rasa.",
+  price: "15.000",
+  image: "assets/rendangsagu.jpeg"
+},
+{
+  name: "Osengan Hintalu Wadi",
+  description: "Hintalu (telur) wadi khas Kalimantan dimasak oseng pedas gurih yang menggugah selera.",
+  price: "35.000",
+  badge: "Best Seller",
+  image: "assets/osengan.jpeg"
+},
+{
+  name: "Puding Amparan Tatak",
+  description: "Puding lapis dengan potongan pisang yang lembut dan legit, disajikan dingin lebih nikmat.",
+  price: "35.000",
+  image: "assets/puddingatak.jpeg"
+},
+{
+  name: "Amparan Tatak",
+  description: "Kue khas Banjar beraroma pandan dengan lapisan pisang lembut, manis, dan tradisional.",
+  price: "35.000",
+  badge: "Best Seller",
+  image: "assets/atak.jpeg"
+},
+{
+  name: "Putri Selat",
+  description: "Kue berlapis manis lembut dengan nuansa pandan dan santan, tampilannya elegan dan rasanya nagih.",
+  price: "35.000",
+  image: "assets/putriselat.jpeg"
+},
+{
+  name: "Bubur Beayak",
+  description: "Bubur khas yang disaring halus (beayak), tekstur lembut, manis gurih, dan cocok jadi menu takjil.",
+  price: "15.000",
+  image: "assets/ayak.jpeg"
+},
+{
+  name: "Puding Tapai",
+  description: "Puding fermentasi tapai manis dan lembut, dengan sensasi rasa khas yang unik.",
+  price: "35.000",
+  image: "assets/pudingtapai.jpeg"
+},
+{
+  name: "Bolu Kelapa",
+  description: "Bolu lembut dengan taburan kelapa parut sangrai yang gurih dan harum.",
+  price: "130.000",
+  image: "assets/kelapabolu.jpeg"
+},
+{
+  name: "Lempeng",
+  description: "Kue pipih tradisional berbahan kelapa parut dan tepung, gurih, manis, dan ringan.",
+  price: "15.000",
+  badge: "Best Seller",
+  image: "assets/lempeng.jpeg"
+},
+{
+  name: "Bingka Tapai Kukus",
+  description: "Bingka kukus dari tapai dengan rasa manis khas dan tekstur legit yang bikin nagih.",
+  price: "35.000",
+  image: "assets/tapaikukus.jpeg"
+},
+{
+  name: "Bolu Ubi Ungu",
+  description: "Bolu lembut dengan rasa manis alami dari ubi ungu, warna cantik, rasa mantap!",
+  price: "135.000",
+  image: "assets/ungu.jpeg",
+  badge: "Best Seller"
+},
+{
+  name: "Bubur Gunting",
+  description: "Bubur khas berisi potongan (gunting) ketupat lembut dalam kuah manis legit santan.",
+  price: "15.000",
+  image: "assets/burting.jpeg"
+}
 ];
 
   const container = document.getElementById("product-list");
@@ -311,7 +309,7 @@ const products = [
           <strong>${item.name}</strong><br>
           Rp ${item.price}
         </div>
-        <button onclick="removeFromCart(${index})" style="border:none;background:none;color:#e91e63;">✕</button>
+        <button class="remove-from-cart" onclick="removeFromCart(${index})">✕</button>
       `;
       cartList.appendChild(li);
       total += parseInt(item.price.replace(/\D/g, ""));
@@ -474,6 +472,19 @@ const products = [
     showTestimonial(testiSlide);
   }, 6000);
 
+  function redirectToWA(e) {
+  e.preventDefault();
+  const nama = document.getElementById("nama").value;
+  const nohp = document.getElementById("nohp").value;
+  const produk = document.getElementById("produk").value;
+  const jumlah = document.getElementById("jumlah").value || "1";
+
+  const pesan = `Halo, saya ingin memesan:\n\nNama: ${nama}\nNomor: ${nohp}\nProduk: ${produk}\nJumlah: ${jumlah}\n\nTerima kasih 😊`;
+  const url = `https://wa.me/6285348176001?text=${encodeURIComponent(pesan)}`;
+  window.open(url, "_blank");
+}
+
+
   // === Scroll Reveal ===
   if (window.ScrollReveal) {
     ScrollReveal().reveal('.product', { origin: 'bottom', distance: '40px', duration: 600, interval: 100 });
@@ -488,4 +499,5 @@ const products = [
   updateCartIcon();
   renderCartItems();
   displayProducts(products);
+  
 });
