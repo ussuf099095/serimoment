@@ -37,6 +37,7 @@
     <div class="hero-buttons">
       <!-- <a href="#pemesanan" class="hero-btn">🛍️ Pesan Sekarang</a> -->
       <a href="#product-list" class="hero-btn-outline">Lihat Menu</a>
+      <a href="#daftar-komentar" class="hero-btn-outline">Lihat Testimoni</a>
     </div>
   </div>
 </section>
@@ -56,6 +57,7 @@
     <button class="cart-icon" id="cart-icon">🛒 <span id="cart-count">0</span></button>
     <button class="dark-toggle" id="dark-toggle">🌙</button>
   </div>
+  <div id="sound-toggle" title="Suara Aktif" class="sound-on">🔊</div>
 </header>
 
   <!-- PRODUK -->
@@ -107,6 +109,16 @@
       <span class="dot"></span>
     </div>
   </section>
+    <!-- Form Testimoni -->
+<div id="form-komentar">
+  <input type="text" id="namaInput" placeholder="Nama Anda">
+  <textarea id="pesanInput" placeholder="Tulis testimoni Anda..."></textarea>
+  <input type="file" id="fotoInput" accept="image/*">
+  <button onclick="kirimKomentar()">Kirim</button>
+</div>
+
+<!-- Daftar Testimoni -->
+<div class="testimoni" id="daftar-komentar"></div>
 
   <!-- FOOTER -->
   <footer>
@@ -143,8 +155,163 @@
     </div>
   </div>
 
+  <div id="welcome-popup" class="popup-hidden">
+  <div class="popup-content">
+    <h2>🎉 Selamat Datang di Seri Moment!</h2>
+    <p>Temukan momen manismu di sini 🍰</p>
+    <button id="close-welcome">Mulai Jelajahi</button>
+  </div>
+</div>
+
+  <audio id="click-sound" src="click.mp3" preload="auto"></audio>
+  <audio id="bg-music" src="calm-background.mp3" loop preload="auto"></audio>
+  <div id="music-toggle" title="Musik Aktif">🎵</div>
+
+<div id="admin-controls" style="text-align: center; margin-top: 2rem;">
+  <button class="btn-admin" onclick="loginAdmin()">🔐 Login Admin</button>
+  <button class="btn-admin logout" onclick="logoutAdmin()">🚪 Logout</button>
+</div>
+
   <!-- TOAST NOTIFIKASI -->
   <div id="toast" class="toast">Ditambahkan ke keranjang 🍰</div>
+
+  <!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyAI1CuNHJ5xW01MPJNy6qGBgh-O8zM1xTc",
+  authDomain: "serimoment-873c1.firebaseapp.com",
+  databaseURL: "https://serimoment-873c1-default-rtdb.firebaseio.com",
+  projectId: "serimoment-873c1",
+  storageBucket: "serimoment-873c1.firebasestorage.app",
+  messagingSenderId: "695273184944",
+  appId: "1:695273184944:web:f073b17680b20b8975a575",
+  measurementId: "G-C3NS8WPF6Z"
+};
+ firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+</script>
+  </script>
+
+  <script>
+  function loginAdmin() {
+    const password = prompt("Masukkan password admin:");
+    if (password === "Srie099095") {
+      localStorage.setItem("isAdmin", "true");
+      alert("Login berhasil sebagai admin!");
+      location.reload();
+    } else {
+      alert("Password salah!");
+    }
+  }
+
+  function logoutAdmin() {
+    localStorage.removeItem("isAdmin");
+    alert("Berhasil logout dari admin.");
+    location.reload();
+  }
+
+  function isAdminLogin() {
+    return localStorage.getItem("isAdmin") === "true";
+  }
+</script>
+
+  <script>
+  const daftarKomentar = document.getElementById('daftar-komentar');
+
+  function kirimKomentar() {
+    const nama = document.getElementById("namaInput").value.trim();
+    const isi = document.getElementById("pesanInput").value.trim();
+    const fileInput = document.getElementById("fotoInput");
+    const file = fileInput.files[0];
+
+    if (!nama || !isi) return alert("Nama dan testimoni harus diisi!");
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const base64Foto = e.target.result;
+
+        const komentar = {
+        nama: nama,
+        isi: isi,
+        waktu: new Date().toISOString(),
+        foto: base64Foto
+    };
+
+
+    // Kirim ke Firebase
+    database.ref("testimoni").push(komentar);
+    bersihkanForm();
+  };
+  reader.readAsDataURL(file);
+} else {  
+  const komentar = {
+    nama: nama,
+    isi: isi,
+    waktu: new Date().toISOString()
+  };
+  database.ref("testimoni").push(komentar);
+  bersihkanForm();
+  }
+}
+function bersihkanForm() {
+    // Kosongkan input
+    document.getElementById("namaInput").value = "";
+    document.getElementById("pesanInput").value = "";
+    document.getElementById("fotoInput").value = "";
+  }
+
+  // Ambil data dari Firebase & tampilkan otomatis
+  database.ref("testimoni").on("value", (snapshot) => {
+    daftarKomentar.innerHTML = ""; // Bersihkan isi sebelumnya
+    const data = snapshot.val();
+    if (data) {
+const semuaKomentar = Object.entries(data).reverse(); // Pakai .entries untuk dapat ID komentar
+
+semuaKomentar.forEach(([id, komentar]) => {
+  const item = document.createElement("div");
+  item.className = "card-komentar";
+
+  let tombolHapus = "";
+  if (isAdminLogin()) {
+    tombolHapus = `<button onclick="hapusKomentar('${id}')" class="btn-hapus">Hapus</button>`;
+  }
+
+  const fotoHTML = komentar.foto
+    ?`<img src="${komentar.foto}" alt="foto Testimoni" style="max-width:100%; border-radius:10px; margin-top:8px;">`
+    : "";
+
+  item.innerHTML = `
+    <strong>${komentar.nama}</strong><br>
+    <small>${new Date(komentar.waktu).toLocaleString()}</small>
+    <p>${komentar.isi}</p>
+    ${fotoHTML}
+    ${tombolHapus}
+  `;
+
+  daftarKomentar.appendChild(item);
+});
+    } else {
+      daftarKomentar.innerHTML = "<p>Belum ada testimoni.</p>";
+    }
+  });
+</script>
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 50, // Bisa disesuaikan
+          behavior: "smooth"
+        });
+      }
+    });
+  });
+</script>
 
   <script src="script.js"></script>
 </body>

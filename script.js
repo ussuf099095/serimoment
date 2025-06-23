@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const welcomePopup = document.getElementById("welcome-popup");
+const closeWelcomeBtn = document.getElementById("close-welcome");
+
+if (closeWelcomeBtn && welcomePopup) {
+  closeWelcomeBtn.addEventListener("click", () => {
+    welcomePopup.style.display = "none";
+    localStorage.setItem("popupClosed", "true");
+  });
+
+  // Cek jika popup sudah pernah ditutup sebelumnya
+  if (localStorage.getItem("popupClosed") === "true") {
+    welcomePopup.style.display = "none";
+  }
+}
   const loader = document.getElementById("loader");
   setTimeout(() => loader.style.display = "none", 800);
 
@@ -100,7 +114,7 @@ const products = [
   },
   {
     name: "Bolu Tapai",
-    description: "",
+    description: "Nikmati cita rasa khas dari Bolu ini",
     price: "130.000",
     image: "assets/tapai.jpeg"
   },
@@ -501,3 +515,97 @@ const products = [
   displayProducts(products);
   
 });
+
+const clickSound = document.getElementById("click-sound");
+let soundEnabled = JSON.parse(localStorage.getItem("soundEnabled")) ?? true;
+
+function playClickSound() {
+  if (soundEnabled) {
+    const s = clickSound.cloneNode();
+    s.play();
+  }
+}
+
+// Pasang ke semua tombol/link
+document.querySelectorAll("button, a, .btn, .product-card, .whatsapp-float, input[type='submit']")
+  .forEach(el => el.addEventListener("click", playClickSound));
+
+// Tombol toggle suara
+const toggleBtn = document.getElementById("sound-toggle");
+
+function updateToggleIcon() {
+  if (soundEnabled) {
+    toggleBtn.textContent = "🔊";
+    toggleBtn.title = "Suara Aktif";
+    toggleBtn.classList.add("sound-on");
+    toggleBtn.classList.remove("sound-off");
+  } else {
+    toggleBtn.textContent = "🔇";
+    toggleBtn.title = "Suara Mati";
+    toggleBtn.classList.add("sound-off");
+    toggleBtn.classList.remove("sound-on");
+  }
+}
+
+toggleBtn.addEventListener("click", () => {
+  soundEnabled = !soundEnabled;
+  localStorage.setItem("soundEnabled", JSON.stringify(soundEnabled));
+  updateToggleIcon();
+});
+
+updateToggleIcon();
+
+const bgMusic = document.getElementById("bg-music");
+const musicToggle = document.getElementById("music-toggle");
+
+let musicEnabled = JSON.parse(localStorage.getItem("musicEnabled")) ?? true;
+
+function updateMusicStatus() {
+  if (musicEnabled) {
+    bgMusic.play().catch(() => {});
+    musicToggle.textContent = "🎵";
+    musicToggle.title = "Musik Aktif";
+  } else {
+    bgMusic.pause();
+    musicToggle.textContent = "🔕";
+    musicToggle.title = "Musik Mati";
+  }
+}
+
+musicToggle.addEventListener("click", () => {
+  musicEnabled = !musicEnabled;
+  localStorage.setItem("musicEnabled", JSON.stringify(musicEnabled));
+  updateMusicStatus();
+});
+
+window.addEventListener("load", () => {
+  updateMusicStatus();
+});
+
+bgMusic.volume = 0.2; // lebih lembut
+
+document.addEventListener("DOMContentLoaded", () => {
+  const popup = document.getElementById("welcome-popup");
+  const closeBtn = document.getElementById("close-welcome");
+
+  if (!sessionStorage.getItem("welcomeShown")) {
+    popup.classList.remove("popup-hidden");
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      popup.classList.add("popup-hidden");
+      sessionStorage.setItem("welcomeShown", "true");
+    });
+  }
+});
+
+function hapusKomentar(id) {
+  if (!isAdminLogin()) {
+    return alert("Hanya admin yang bisa menghapus komentar!");
+  }
+  const konfirmasi = confirm("Yakin ingin menghapus komentar ini?");
+  if (konfirmasi) {
+    database.ref("testimoni/" + id).remove();
+  }
+}
