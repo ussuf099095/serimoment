@@ -96,73 +96,19 @@ body.dark {
 }
 
 /* KARTU PRODUK */
-.product {
-  background: #fff0f6;
-  border-radius: 16px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  position: relative;
-  text-align: center;
-  padding-bottom: 15px;
-}
 
-.product:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
 
 /* GAMBAR PRODUK */
-.product img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-  border-bottom: 2px solid #f8c0d8;
-}
 
-.product:hover img {
-  transform: scale(1.05);
-}
+
 
 /* BADGE PRODUK */
-.badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: #ff85a2;
-  color: white;
-  font-size: 0.75rem;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-weight: 600;
-  text-transform: uppercase;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
 
 /* NAMA & DESKRIPSI */
-.product h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  margin: 15px 0 5px;
-  color: #d6336c;
-}
 
-.product p {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 0.9rem;
-  color: #555;
-  padding: 0 10px;
-}
 
 /* HARGA */
-.product .price {
-  font-size: 1rem;
-  color: #000;
-  font-weight: bold;
-  margin-top: 8px;
-}
+
 
 /* Header */
 header {
@@ -2204,4 +2150,295 @@ header {
 
 html {
   scroll-behavior: smooth;
+}
+
+.product {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid #f3d1dc;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.product:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #f8d6e2;
+  transition: transform 0.3s ease;
+}
+
+.product:hover img {
+  transform: scale(1.03);
+}
+
+.product h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin: 15px 0 5px;
+  color: #d6336c;
+}
+
+.product p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9rem;
+  color: #555;
+  padding: 0 10px;
+}
+
+.product .price {
+  font-size: 1rem;
+  color: #e91e63;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #e91e63;
+  color: white;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Tombol */
+.product .add-to-cart {
+  margin-top: 1rem;
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.3s ease;
+}
+
+.product .add-to-cart:hover {
+  background-color: #c2185b;
+}
+
+.testimoni {
+  padding: 60px 20px;
+  background-color: #fff0f6;
+  text-align: center;
+}
+
+.testimoni h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #d63384;
+  margin-bottom: 30px;
+}
+
+.testimonial-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.testimonial-track {
+  display: flex;
+  gap: 20px;
+}
+
+.testimonial-card {
+  flex: 0 0 80%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 20px;
+  scroll-snap-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+  font-family: 'Quicksand', sans-serif;
+  color: #444;
+}
+
+.testimonial-card h4 {
+  font-family: 'Playfair Display', serif;
+  color: #c2185b;
+  margin-top: 10px;
+  font-weight: normal;
+}
+
+.testimonial-card img {
+  margin-top: 10px;
+  border-radius: 10px;
+  max-height: 180px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.testimonial-card small {
+  display: block;
+  margin: 5px 0;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+#admin-controls {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.btn-admin {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-admin:hover {
+  background-color: #c2185b;
+}
+
+.btn-admin.logout {
+  background-color: #f8d7da;
+  color: #c2185b;
+}
+
+.btn-admin.logout:hover {
+  background-color: #f5c6cb;
+}
+
+.admin-status {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #555;
+  transition: 0.3s ease;
+}
+
+.admin-status.admin {
+  color: green;
+}
+
+.main-footer {
+  background-color: #fff0f6;
+  color: #444;
+  padding: 40px 20px 20px;
+  font-family: 'Quicksand', sans-serif;
+  border-top: 2px solid #f3d1dc;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: center;
+}
+
+.footer-top > div {
+  flex: 1 1 150px;
+}
+
+.brand h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #d63384;
+}
+
+.footer-nav a,
+.footer-contact a {
+  display: block;
+  margin: 5px 0;
+  text-decoration: none;
+  color: #d63384;
+  transition: 0.3s;
+}
+
+.footer-nav a:hover,
+.footer-contact a:hover {
+  text-decoration: underline;
+  color: #c2185b;
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+@media (max-width: 600px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease;
+}
+
+header.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+  scroll-margin-top: 80px; /* agar saat klik menu scroll tidak tertutup navbar */
 }

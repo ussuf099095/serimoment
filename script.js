@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const navbar = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 20) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
   const welcomePopup = document.getElementById("welcome-popup");
 const closeWelcomeBtn = document.getElementById("close-welcome");
 
@@ -47,7 +56,7 @@ const products = [
     description: "Bolu kukus lembut dengan rasa ori nikmat",
     price: "115.000",
     badge: "Best Seller",
-    image: "assets/bolu-ori.jpeg"
+    image: "assets/gantiori.jpeg"
   },
   {
     name: "Kue Lapis Hula-Hula",
@@ -273,6 +282,12 @@ const products = [
   description: "Bubur khas berisi potongan (gunting) ketupat lembut dalam kuah manis legit santan.",
   price: "15.000",
   image: "assets/burting.jpeg"
+},
+{
+  name: "Bolu Keju",
+  description: "Kelembutan bolu dengan rasa keju ini sangat cocok untuk menemani waktu bersama keluarga kalian.",
+  price: "140.000",
+  image: "assets/bolu-ori.jpeg"
 }
 ];
 
@@ -384,6 +399,31 @@ const products = [
       });
       card.addEventListener("click", () => showPopup(product));
       container.appendChild(card);
+
+      // LIGHTBOX GALLERY TESTIMONI
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.querySelector(".lightbox-img");
+const closeLightbox = document.querySelector(".lightbox-close");
+
+// Klik gambar testimoni → buka lightbox
+testimonialTrack.addEventListener("click", function (e) {
+  if (e.target.tagName === "IMG") {
+    lightboxImg.src = e.target.src;
+    lightbox.style.display = "flex";
+  }
+});
+
+// Klik tombol close → tutup lightbox
+closeLightbox.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
+
+// Klik area gelap luar gambar → tutup lightbox
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = "none";
+  }
+});
     });
   }
 
@@ -465,26 +505,26 @@ const products = [
   const testiSlides = document.querySelectorAll(".testimonial-slide");
   const dots = document.querySelectorAll(".dot");
 
-  function showTestimonial(index) {
-    testiSlides.forEach((slide, i) => {
-      slide.classList.remove("active");
-      dots[i].classList.remove("active");
-    });
-    testiSlides[index].classList.add("active");
-    dots[index].classList.add("active");
-  }
+  // function showTestimonial(index) {
+  //   testiSlides.forEach((slide, i) => {
+  //     slide.classList.remove("active");
+  //     dots[i].classList.remove("active");
+  //   });
+  //   testiSlides[index].classList.add("active");
+  //   dots[index].classList.add("active");
+  // }
 
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-      testiSlide = index;
-      showTestimonial(index);
-    });
-  });
+  // dots.forEach((dot, index) => {
+  //   dot.addEventListener("click", () => {
+  //     testiSlide = index;
+  //     showTestimonial(index);
+  //   });
+  // });
 
-  setInterval(() => {
-    testiSlide = (testiSlide + 1) % testiSlides.length;
-    showTestimonial(testiSlide);
-  }, 6000);
+  // setInterval(() => {
+  //   testiSlide = (testiSlide + 1) % testiSlides.length;
+  //   showTestimonial(testiSlide);
+  // }, 6000);
 
   function redirectToWA(e) {
   e.preventDefault();
@@ -609,3 +649,34 @@ function hapusKomentar(id) {
     database.ref("testimoni/" + id).remove();
   }
 }
+ScrollReveal().reveal('.product', {
+  origin: 'bottom',
+  distance: '40px',
+  duration: 600,
+  interval: 100
+});
+
+function updateAdminStatus() {
+  const status = document.getElementById("admin-status");
+  const isAdmin = isAdminLogin();
+
+  if (status) {
+    if (isAdmin) {
+      status.textContent = "✅ Login sebagai Admin";
+      status.classList.add("admin");
+    } else {
+      status.textContent = "🔓 Mode Pengunjung";
+      status.classList.remove("admin");
+    }
+  }
+
+  // Tampilkan/hilangkan semua tombol hapus testimoni
+  document.querySelectorAll(".btn-hapus").forEach(btn => {
+    btn.style.display = isAdmin ? "inline-block" : "none";
+  });
+}
+
+// Panggil saat halaman load atau setelah login/logout
+document.addEventListener("DOMContentLoaded", () => {
+  updateAdminStatus();
+});
